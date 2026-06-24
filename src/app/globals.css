@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-rock-950 text-rock-100 antialiased;
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .section {
+    @apply py-16 sm:py-24;
+  }
+
+  .eyebrow {
+    @apply text-xs font-mono uppercase tracking-[0.25em] text-ore-400;
+  }
+
+  .card {
+    @apply rounded-xl border border-rock-700/60 bg-rock-900/60 p-6 transition
+           hover:border-ore-500/50 hover:bg-rock-900;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5
+           text-sm font-medium transition;
+  }
+
+  .btn-primary {
+    @apply btn bg-ore-500 text-rock-950 hover:bg-ore-400;
+  }
+
+  .btn-ghost {
+    @apply btn border border-rock-700 text-rock-100 hover:border-ore-500/60 hover:text-ore-400;
+  }
+
+  .tag {
+    @apply inline-block rounded-full border border-rock-700 bg-rock-800/60
+           px-3 py-1 text-xs font-mono text-rock-200;
+  }
+}
