@@ -58,13 +58,13 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden border-t border-rock-800/80">
         {/* Background image */}
         <Image
-          src="/images/kalgoorlie-gold-fault-map.png"
-          alt="Structural control of gold deposits in the Kalgoorlie region — fault systems and gold occurrences"
+          src="/images/featured-projects-bg.png"
+          alt="Satellite, global network and terrain data visualization"
           fill
           sizes="100vw"
           className="-z-10 object-cover"
         />
-        {/* Light overlay — let the map show through */}
+        {/* Light overlay — let the artwork show through */}
         <div
           aria-hidden
           className="absolute inset-0 -z-10 bg-rock-950/45"

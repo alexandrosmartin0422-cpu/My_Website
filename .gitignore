@@ -31,3 +31,7 @@ next-env.d.ts
 
 # runtime data (visit / download counters)
 /.data
+
+# local source/working images (not used by the site; copies live in public/images)
+/image
+/*.png

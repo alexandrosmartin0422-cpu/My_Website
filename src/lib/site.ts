@@ -15,7 +15,7 @@ export const site = {
   email: "alexandrosmartin0422@gmail.com",
   emailSecondary: "martinguku37@gmail.com",
   links: {
-    github: "https://github.com/", // TODO: replace with your GitHub URL
+    github: "https://github.com/alexandrosmartin0422-cpu",
     linkedin: "https://www.linkedin.com/", // TODO: replace with your LinkedIn URL
   },
 };
