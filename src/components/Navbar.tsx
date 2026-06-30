@@ -36,7 +36,7 @@ export default function Navbar() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`rounded-md px-3 py-2 text-sm transition ${
+                className={`link-underline rounded-md px-3 py-2 text-sm transition ${
                   isActive(item.href)
                     ? "text-cyber-300 [text-shadow:0_0_12px_rgba(34,211,238,0.5)]"
                     : "text-rock-300 hover:text-rock-50"

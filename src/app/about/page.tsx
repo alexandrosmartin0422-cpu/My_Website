@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
+import ContourLines from "@/components/ContourLines";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = { title: "About" };
@@ -15,13 +16,17 @@ export default function AboutPage() {
 
   return (
     <>
-      <PageHeader
-        eyebrow="About Me"
-        title="GIS & Geological Mapping Specialist"
-        description="Aspiring GIS and Geological Mapping Specialist focused on mineral exploration, remote sensing and spatial analysis."
-      />
+      <div className="relative isolate">
+        <PageHeader
+          eyebrow="About Me"
+          title="GIS & Geological Mapping Specialist"
+          description="Aspiring GIS and Geological Mapping Specialist focused on mineral exploration, remote sensing and spatial analysis."
+        />
+        <ContourLines />
+      </div>
 
-      <section className="section">
+      <section className="relative isolate overflow-hidden section">
+        <ContourLines />
         <div className="container-content grid gap-12 md:grid-cols-[1fr_320px]">
           <Reveal from="left" className="space-y-6 text-rock-300 leading-relaxed">
             <p>

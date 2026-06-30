@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
+import BinaryField from "@/components/BinaryField";
+import DemTerrain from "@/components/DemTerrain";
 
 export const metadata: Metadata = { title: "Skills" };
 
@@ -31,13 +33,23 @@ const skillGroups = [
 export default function SkillsPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Skills"
-        title="Core Technical Skills"
-        description="The GIS, programming, remote sensing and geology toolset I use to deliver spatial analysis for mineral exploration."
-      />
+      {/* Scattered 0/1 field that scatters away from the cursor */}
+      <div className="relative isolate">
+        <PageHeader
+          eyebrow="Skills"
+          title="Core Technical Skills"
+          description="The GIS, programming, remote sensing and geology toolset I use to deliver spatial analysis for mineral exploration."
+        />
+        <BinaryField />
+      </div>
 
-      <section className="section">
+      <section className="relative isolate overflow-hidden section">
+        {/* Living wireframe DEM terrain: 0/1 digits get absorbed into the mesh,
+            reshaping it over time. Ambient background shows through behind it. */}
+        <div className="absolute inset-0 -z-10">
+          <DemTerrain />
+        </div>
+
         <div className="container-content grid gap-6 sm:grid-cols-2">
           {skillGroups.map((group, i) => (
             <Reveal key={group.title} delay={i * 100} zoom className="h-full">

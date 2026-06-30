@@ -35,6 +35,8 @@ const config: Config = {
         },
         cyber: {
           // cyan / electric secondary accent for the futuristic look
+          100: "#cffafe",
+          200: "#a5f3fc",
           300: "#67e8f9",
           400: "#22d3ee",
           500: "#06b6d4",

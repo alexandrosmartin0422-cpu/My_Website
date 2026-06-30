@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import DownloadLink from "@/components/DownloadLink";
 import Reveal from "@/components/Reveal";
+import SatelliteCursor from "@/components/SatelliteCursor";
+import SpectralUpload from "@/components/SpectralUpload";
 
 export const metadata: Metadata = { title: "Downloads" };
 
@@ -31,11 +33,15 @@ const files = [
 export default function DownloadsPage() {
   return (
     <>
-      <PageHeader
+      <SatelliteCursor />
+      <div className="relative isolate overflow-hidden">
+        <PageHeader
         eyebrow="Downloads"
         title="Resume & Portfolio Files"
         description="Downloadable documents for recruiters and collaborators. (Add the PDF files to /public/downloads/.)"
       />
+        <SpectralUpload />
+      </div>
 
       <section className="section">
         <div className="container-content grid gap-4 sm:grid-cols-2">

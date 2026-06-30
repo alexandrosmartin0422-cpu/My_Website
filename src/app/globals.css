@@ -20,6 +20,13 @@ body {
   @apply bg-cyber-400/30 text-rock-50;
 }
 
+/* When the magnetic cursor is active, hide the native cursor everywhere so the
+   custom ring is the pointer. (Only added on non-touch, motion-OK devices.) */
+.has-magnetic-cursor,
+.has-magnetic-cursor * {
+  cursor: none !important;
+}
+
 @layer components {
   .container-content {
     @apply mx-auto w-full max-w-content px-5 sm:px-8;
@@ -33,16 +40,17 @@ body {
     @apply text-xs font-mono uppercase tracking-[0.25em] text-cyber-400;
   }
 
-  /* Glassmorphism card with neon hover */
+  /* Glassmorphism card with neon hover + lift micro-interaction */
   .card {
     @apply relative rounded-xl border border-rock-700/60 bg-rock-900/50 p-6
-           backdrop-blur-sm transition duration-300
-           hover:border-cyber-400/50 hover:bg-rock-900/70 hover:shadow-glow-soft;
+           backdrop-blur-sm transition duration-300 ease-out
+           hover:-translate-y-1 hover:border-cyber-400/50 hover:bg-rock-900/70 hover:shadow-glow-soft;
   }
 
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5
-           text-sm font-medium transition duration-300;
+           text-sm font-medium transition duration-300 ease-out
+           hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97];
   }
 
   /* Primary: glowing gold */
@@ -59,13 +67,53 @@ body {
 
   .tag {
     @apply inline-block rounded-full border border-cyber-400/20 bg-rock-800/60
-           px-3 py-1 text-xs font-mono text-cyber-300/90;
+           px-3 py-1 text-xs font-mono text-cyber-300/90 transition duration-200
+           hover:border-cyber-400/60 hover:text-cyber-200 hover:shadow-glow-cyber;
   }
 
-  /* Gradient text accent */
+  /* Animated underline link: slides in from the left on hover */
+  .link-underline {
+    @apply relative transition-colors duration-200;
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0
+           bg-cyber-400 transition-transform duration-300 ease-out;
+  }
+  .link-underline:hover::after {
+    @apply origin-left scale-x-100;
+  }
+
+  /* Icon that nudges on parent hover (pair with `group`) */
+  .icon-nudge {
+    @apply transition-transform duration-200 ease-out group-hover:translate-x-1;
+  }
+
+  /* Subtle focus ring glow for inputs/interactive elements */
+  .focus-glow {
+    @apply outline-none transition duration-200
+           focus:border-cyber-400 focus:shadow-glow-cyber;
+  }
+
+  /* Gradient text accent.
+     Falls back to a solid light color first, then layers the gradient via
+     background-clip only where supported — so text is NEVER invisible even
+     when split into inline spans (e.g. by TextReveal). */
   .text-gradient {
-    @apply bg-gradient-to-r from-ore-400 via-ore-500 to-cyber-400
-           bg-clip-text text-transparent;
+    @apply text-rock-50;
+  }
+  @supports (-webkit-background-clip: text) or (background-clip: text) {
+    .text-gradient {
+      @apply bg-gradient-to-r from-ore-400 via-ore-500 to-cyber-400;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    /* When the gradient text is split into inline child spans (TextReveal),
+       let each span carry the gradient instead of collapsing to transparent. */
+    .text-gradient > span {
+      -webkit-text-fill-color: transparent;
+    }
   }
 
   /* Hairline divider with a glowing center */

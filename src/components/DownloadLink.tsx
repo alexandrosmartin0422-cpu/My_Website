@@ -29,7 +29,12 @@ export default function DownloadLink({
   }
 
   return (
-    <a href={href} download className={className} onClick={handleClick}>
+    <a
+      href={href}
+      download
+      onClick={handleClick}
+      className={`${className} transition active:scale-[0.98]`}
+    >
       {children}
     </a>
   );

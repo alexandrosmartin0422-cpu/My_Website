@@ -62,7 +62,7 @@ export default function StatsBadge() {
   }, []);
 
   return (
-    <div className="fixed left-3 top-3 z-[60] flex items-center gap-2 rounded-full border border-cyber-400/30 bg-rock-950/70 px-3 py-1.5 text-xs font-mono text-rock-300 shadow-glow-cyber backdrop-blur-md">
+    <div className="fixed left-3 top-3 z-[60] flex items-center gap-2 rounded-full border border-cyber-400/30 bg-rock-950/70 px-3 py-1.5 text-xs font-mono text-rock-300 shadow-glow-cyber backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-cyber-400/60 hover:shadow-[0_0_26px_-4px_rgba(34,211,238,0.7)]">
       <span className="flex items-center gap-1.5" title="Total page visits">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
           <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />

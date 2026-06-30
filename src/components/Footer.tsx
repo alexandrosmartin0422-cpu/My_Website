@@ -32,7 +32,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-rock-300 hover:text-ore-400">
+                  <Link href={item.href} className="link-underline text-rock-300 hover:text-ore-400">
                     {item.label}
                   </Link>
                 </li>
@@ -44,28 +44,22 @@ export default function Footer() {
             <p className="eyebrow mb-3">Connect</p>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href={`mailto:${site.email}`} className="text-rock-300 hover:text-ore-400">
+                <a href={`mailto:${site.email}`} className="link-underline text-rock-300 hover:text-ore-400">
                   Email
                 </a>
               </li>
               <li>
-                <a href={site.links.github} target="_blank" rel="noreferrer" className="text-rock-300 hover:text-ore-400">
+                <a href={site.links.github} target="_blank" rel="noreferrer" className="link-underline text-rock-300 hover:text-ore-400">
                   GitHub
                 </a>
               </li>
               <li>
-                <a href={site.links.linkedin} target="_blank" rel="noreferrer" className="text-rock-300 hover:text-ore-400">
+                <a href={site.links.linkedin} target="_blank" rel="noreferrer" className="link-underline text-rock-300 hover:text-ore-400">
                   LinkedIn
                 </a>
               </li>
             </ul>
           </div>
-        </div>
-      </div>
-
-      <div className="relative z-10 border-t border-cyber-400/10">
-        <div className="container-content py-5 text-xs text-rock-500">
-          © {new Date().getFullYear()} {site.name}. Built with Next.js & TailwindCSS.
         </div>
       </div>
     </footer>

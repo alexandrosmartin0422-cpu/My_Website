@@ -57,13 +57,13 @@ export default function AmbientBackground() {
       {/* Gold glow orb (parallax) */}
       <div
         ref={goldRef}
-        className="absolute -left-40 top-[-10%] h-[36rem] w-[36rem] animate-pulse-glow rounded-full bg-ore-500/20 blur-[120px] will-change-transform"
+        className="absolute -left-40 top-[-10%] h-[36rem] w-[36rem] animate-pulse-glow rounded-full bg-ore-500/10 blur-[120px] will-change-transform"
       />
 
       {/* Cyan glow orb (parallax, opposite direction) */}
       <div
         ref={cyanRef}
-        className="absolute -right-40 bottom-[-10%] h-[40rem] w-[40rem] animate-pulse-glow rounded-full bg-cyber-500/20 blur-[130px] will-change-transform"
+        className="absolute -right-40 bottom-[-10%] h-[40rem] w-[40rem] animate-pulse-glow rounded-full bg-cyber-500/10 blur-[130px] will-change-transform"
       />
 
       {/* Top vignette so the navbar reads cleanly */}

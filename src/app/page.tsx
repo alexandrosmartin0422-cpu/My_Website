@@ -5,10 +5,15 @@ import { featuredProjects, projects } from "@/lib/projects";
 import ProjectCard from "@/components/ProjectCard";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import Reveal from "@/components/Reveal";
+import TextReveal from "@/components/TextReveal";
+import CursorEffects from "@/components/CursorEffects";
 
 export default function HomePage() {
   return (
     <>
+      {/* Cursor smoke trail + click ripple/fireworks — Home page only */}
+      <CursorEffects />
+
       {/* Hero — full-bleed background slideshow (4 cross-fading images) */}
       <section className="relative isolate overflow-hidden">
         {/* Rotating background images */}
@@ -21,14 +26,15 @@ export default function HomePage() {
 
         <div className="container-content relative py-28 sm:py-36 lg:py-44">
           <div className="max-w-3xl">
-            <Reveal>
-              <h1 className="text-4xl font-bold leading-tight tracking-tight text-rock-50 drop-shadow sm:text-5xl lg:text-6xl">
-                {site.taglines[0]}
-                <span className="mt-1 block text-gradient drop-shadow-none">
-                  {site.taglines[1]}
-                </span>
-              </h1>
-            </Reveal>
+            <h1 className="text-4xl font-bold leading-tight tracking-tight text-rock-50 drop-shadow sm:text-5xl lg:text-6xl">
+              <TextReveal as="span" className="block" text={site.taglines[0]} />
+              <TextReveal
+                as="span"
+                className="mt-1 block text-rock-100 drop-shadow"
+                text={site.taglines[1]}
+                delay={site.taglines[0].split(" ").length * 90}
+              />
+            </h1>
             <Reveal delay={120}>
               <p className="mt-6 max-w-xl text-lg text-rock-200 drop-shadow">
                 {site.intro}
@@ -45,15 +51,6 @@ export default function HomePage() {
                 </Link>
               </div>
             </Reveal>
-
-            <Reveal delay={360}>
-              <div className="mt-8 flex items-center gap-4 text-sm text-rock-200">
-                <span className="inline-flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-cyber-400 shadow-glow-cyber" />
-                  {site.location}
-                </span>
-              </div>
-            </Reveal>
           </div>
         </div>
       </section>
@@ -66,12 +63,12 @@ export default function HomePage() {
           alt="Satellite, global network and terrain data visualization"
           fill
           sizes="100vw"
-          className="-z-10 object-cover"
+          className="hidden -z-10 object-cover"
         />
-        {/* Light overlay — let the artwork show through */}
+        {/* Darker overlay over the background artwork — background stays faintly visible */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-rock-950/45"
+          className="absolute inset-0 -z-10 bg-rock-950/82"
         />
 
         <div className="container-content section">
@@ -112,12 +109,12 @@ export default function HomePage() {
           alt="Python connecting ArcGIS and QGIS in a geospatial data processing stack"
           fill
           sizes="100vw"
-          className="-z-10 object-cover"
+          className="hidden -z-10 object-cover"
         />
-        {/* Light overlay — let the tooling artwork show through */}
+        {/* Very dark overlay — background artwork only faintly visible */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-rock-950/40"
+          className="absolute inset-0 -z-10 bg-rock-950/92"
         />
 
         <div className="container-content section">

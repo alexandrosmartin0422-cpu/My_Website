@@ -10,7 +10,7 @@ export const site = {
   ],
   intro:
     "Spatial Analysis for Geology, Mineral Exploration and Mapping.",
-  location: "Perth, Western Australia",
+  location: "Columbia Falls, MT",
   // Primary email is used for the contact button and form.
   email: "alexandrosmartin0422@gmail.com",
   emailSecondary: "martinguku37@gmail.com",
